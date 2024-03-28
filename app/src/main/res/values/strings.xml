@@ -9,4 +9,7 @@
     <string name="text_title_switch_round_tip">Round up tip?</string>
     <string name="btn_calculate_tip_text">Calculate the tip!</string>
     <string name="empty_input_cost_toast">Please insert the cost of service first!</string>
+    <string name="result_cost_of_service_title">Cost of Service:</string>
+    <string name="result_tip_title">Tip :</string>
+    <string name="tip_calculated_success_toast_text">Tip Calculated!</string>
 </resources>
