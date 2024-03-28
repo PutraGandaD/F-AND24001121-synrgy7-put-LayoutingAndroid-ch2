@@ -1,9 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Challenge2" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
     </style>
 
-    <style name="Theme.Challenge2" parent="Base.Theme.Challenge2" />
+    <style name="Theme.Challenge2" parent="Base.Theme.Challenge2" >
+        <item name="materialSwitchStyle">@style/Widget.App.Switch</item>
+    </style>
+
+    <style name="Widget.App.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.AppCompat.Switch</item>
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.Switch" parent="">
+        <item name="colorPrimary">@color/switch_pressed_material</item>
+        <item name="colorSurfaceVariant">@color/switch_background_material</item>
+    </style>
+
 </resources>

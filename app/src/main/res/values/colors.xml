@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary_green_material">#F3F0E0</color>
+    <color name="primary_background_material">#FDFDF6</color>
+    <color name="switch_background_material">#DFE4D6</color>
+    <color name="switch_pressed_material">#386A20</color>
 </resources>

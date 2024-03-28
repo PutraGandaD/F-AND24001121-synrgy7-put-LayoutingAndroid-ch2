@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Challenge2</string>
+    <string name="app_title">Tip Time</string>
+    <string name="cost_input_hint">Cost of Service</string>
+    <string name="cost_input_helper_text">How was the service?</string>
+    <string name="text_amazing_rate_service">Amazing (20%)</string>
+    <string name="text_good_rate_service">Good (18%)</string>
+    <string name="text_ok_rate_service">OK (15%)</string>
+    <string name="text_title_switch_round_tip">Round up tip?</string>
+    <string name="btn_calculate_tip_text">Calculate the tip!</string>
 </resources>
