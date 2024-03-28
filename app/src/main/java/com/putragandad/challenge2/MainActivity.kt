@@ -26,12 +26,16 @@ class MainActivity : AppCompatActivity() {
 
         // listen to press event for calculate tip button
         binding.btnCalculateTip.setOnClickListener {
-            val costServiceInput = binding.etFillableInputCost.text.toString()
+            val costServiceInput = binding.etFillableInputCost.text.toString() // get cost of service value
 
-            convertToInt(costServiceInput)
             checkRoundTipState(binding.switchRoundTip)
 
-            printFinalTip(costService, calculateTip(costService, tipRateId, roundTipState), binding.resultCost, binding.resultTip)
+            if(costServiceInput.isNotEmpty()) {
+                convertToInt(costServiceInput)
+                printFinalTip(costService, calculateTip(costService, tipRateId, roundTipState), binding.resultCost, binding.resultTip)
+            } else {
+                Toast.makeText(this, getString(R.string.empty_input_cost_toast), Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -42,11 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun convertToInt(cost: String) {
-        if(cost.isNotEmpty()) {
-            costService = cost.toInt()
-        } else {
-            Toast.makeText(this, getString(R.string.empty_input_cost_toast), Toast.LENGTH_SHORT).show()
-        }
+        costService = cost.toInt()
     }
 
     private fun checkRoundTipState(switch: MaterialSwitch) {
