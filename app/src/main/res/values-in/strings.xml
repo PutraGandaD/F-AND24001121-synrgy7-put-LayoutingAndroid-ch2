@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tip Time</string>
+    <string name="app_title">Tip Time</string>
+    <string name="cost_input_hint">Biaya Layanan</string>
+    <string name="cost_input_helper_text">Bagaimana pelayanan yang anda terima?</string>
+    <string name="text_amazing_rate_service">Sangat Baik (20%)</string>
+    <string name="text_good_rate_service">Baik Sekali (18%)</string>
+    <string name="text_ok_rate_service">Cukup Baik (15%)</string>
+    <string name="text_title_switch_round_tip">Bulatkan tip?</string>
+    <string name="btn_calculate_tip_text">Hitung tip!</string>
+    <string name="empty_input_cost_toast">Mohon masukkan biaya layanan terlebih dahulu!</string>
+    <string name="result_cost_of_service_title">"Biaya Layanan : "</string>
+    <string name="result_tip_title">"Tip : "</string>
+    <string name="tip_calculated_success_toast_text">Tip berhasil dihitung!</string>
+</resources>
