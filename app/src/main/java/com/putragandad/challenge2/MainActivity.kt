@@ -10,9 +10,7 @@ import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var costService: Int = 0 // cost service (converted to Int)
     private var tipRateId: Int = 0 // tip rate id (radio button)
-    private var roundTipState: Boolean = false // round tip state (switch)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,52 +26,34 @@ class MainActivity : AppCompatActivity() {
         binding.btnCalculateTip.setOnClickListener {
             val costServiceInput = binding.etFillableInputCost.text.toString() // get cost of service value
 
-            checkRoundTipState(binding.switchRoundTip)
-
             if(costServiceInput.isNotEmpty()) {
-                convertToInt(costServiceInput)
-                printFinalTip(costService, calculateTip(costService, tipRateId, roundTipState), binding.resultCost, binding.resultTip)
+                if(binding.radioGroupService.checkedRadioButtonId == -1) {
+                    Toast.makeText(this,
+                        getString(R.string.tip_percentage_empty_text), Toast.LENGTH_SHORT).show()
+                } else {
+                    val tip = calculateTip(costServiceInput.toInt(), tipRateId)
+                    printFinalTip(costServiceInput.toInt(), tip , binding.resultCost, binding.resultTip, binding.switchRoundTip)
+                }
             } else {
                 Toast.makeText(this, getString(R.string.empty_input_cost_toast), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    enum class TipValue(val id: Int, val value: Double) {
-        AMAZING(1, 0.2),
-        GOOD(2, 0.18),
-        OK(3, 0.15)
-    }
-
-    private fun convertToInt(cost: String) {
-        costService = cost.toInt()
-    }
-
-    private fun checkRoundTipState(switch: MaterialSwitch) {
-        roundTipState = switch.isChecked
-    }
-
-    private fun calculateTip(cost: Int, tipRateId: Int , round: Boolean): Double {
-        var calculatedTip = 0.0
-
-        when(tipRateId) {
-            TipValue.AMAZING.id -> {
-                calculatedTip = cost * TipValue.AMAZING.value
-            }
-            TipValue.GOOD.id -> {
-                calculatedTip = cost * TipValue.GOOD.value
-            }
-            TipValue.OK.id -> {
-                calculatedTip = cost * TipValue.OK.value
-            }
+    private fun calculateTip(cost: Int, tipRateId: Int): Double {
+        val tipPercentage = when(tipRateId) {
+            1 -> 0.2
+            2 -> 0.18
+            3 -> 0.15
+            else -> 0.0
         }
 
-        return if(round) calculatedTip.roundToInt().toDouble() else calculatedTip
+        return cost * tipPercentage
     }
 
-    private fun printFinalTip(costService: Int, tip: Double, tvCost: TextView, tvTip: TextView) {
-        tvCost.setText("$${costService}")
-        tvTip.setText("$${tip}")
+    private fun printFinalTip(costService: Int, tip: Double, tvCost: TextView, tvTip: TextView, switchRoundTip: MaterialSwitch) {
+        tvCost.text = "$${costService}"
+        tvTip.text = if(switchRoundTip.isChecked) "$${tip.roundToInt().toDouble()}" else "$${tip}"
 
         Toast.makeText(this,
             getString(R.string.tip_calculated_success_toast_text), Toast.LENGTH_SHORT).show()

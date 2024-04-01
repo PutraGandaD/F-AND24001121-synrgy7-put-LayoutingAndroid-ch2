@@ -12,4 +12,5 @@
     <string name="result_cost_of_service_title">Cost of Service:</string>
     <string name="result_tip_title">Tip :</string>
     <string name="tip_calculated_success_toast_text">Tip Calculated!</string>
+    <string name="tip_percentage_empty_text">Please choose the tip percentage first!</string>
 </resources>

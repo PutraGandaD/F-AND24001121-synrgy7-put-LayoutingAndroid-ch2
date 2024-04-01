@@ -13,4 +13,5 @@
     <string name="result_cost_of_service_title">"Biaya Layanan : "</string>
     <string name="result_tip_title">"Tip : "</string>
     <string name="tip_calculated_success_toast_text">Tip berhasil dihitung!</string>
+    <string name="tip_percentage_empty_text">Pilih berapa persen tip yang akan diberikan terlebih dahulu!</string>
 </resources>
